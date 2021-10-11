@@ -1,5 +1,9 @@
 import React from 'react';
 
+/*extended version of the chart, features:
+ *select starting month and end month
+ *drag and drop jobs
+*/
 export class GanttChart extends React.Component {
   
     constructor(props) {
@@ -7,8 +11,6 @@ export class GanttChart extends React.Component {
       super(props);
      
       this.state = {
-        jobs: props.jobs,
-        resources: props.resources,
         dateFrom: new Date(2021,5,24),
         dateTo: new Date(2021,7,31),
       };
@@ -23,8 +25,8 @@ export class GanttChart extends React.Component {
             onDateToChanged={(date) => {this.setState({dateTo:date});}}
           />
           
-          <Chart jobs={this.state.jobs} resources={this.state.resources} dateFrom={this.state.dateFrom}
-            dateTo={this.state.dateTo}/>
+          <Chart jobs={this.props.jobs} resources={this.props.resources} dateFrom={this.state.dateFrom}
+            dateTo={this.state.dateTo} onUpdateJob={this.props.onUpdateJob}/>
           
         </div>
       );
@@ -278,7 +280,7 @@ class Chart extends React.Component {
 
         let elements = []; let i=0;
 
-        this.state.resources.forEach(resource => {
+        this.props.resources.forEach(resource => {
 
             elements.push(<div key={"gr"+(i++)} style={{borderTop : 'none'}} className="gantt-row-resource">{resource.name}</div>);
 
@@ -295,9 +297,9 @@ class Chart extends React.Component {
 
                 for(date; date <= l_om; date.setDate(date.getDate()+1)){
 
-                    let cell_jobs = this.state.jobs.filter((job) => job.resource == resource.id && job.start.getTime() == date.getTime());
+                    let cell_jobs = this.props.jobs.filter((job) => job.resource == resource.id && job.start.getTime() == date.getTime());
 
-                    cells.push(<ChartCell key={"gr"+(i++)} resource={resource} date={new Date(date)} jobs={cell_jobs} updateJob={this.updateJob}/>);
+                    cells.push(<ChartCell key={"gr"+(i++)} resource={resource} date={new Date(date)} jobs={cell_jobs} onDropJob={this.dropJob}/>);
                 }
 
                 elements.push(<div key={"gr"+(i++)} style={{border: 'none'}} className="gantt-row-period">{cells}</div>);
@@ -310,22 +312,21 @@ class Chart extends React.Component {
     }
 
 
-    updateJob = (id, newResource, newDate) => {
+    dropJob = (id, newResource, newDate) => {
 
-        let new_jobs = this.state.jobs.slice();
+        let job = this.props.jobs.find(j => j.id == id );
 
-        let job = new_jobs.find(j => j.id == id );
-
-        job.resource = newResource;
+        let newJob = {};
+        newJob.resource = newResource;
        
         let d = this.dayDiff(job.start, job.end); 
         let end = new Date(newDate);
         end.setDate(newDate.getDate()+d);
 
-        job.start = newDate;
-        job.end = end;
+        newJob.start = newDate;
+        newJob.end = end;
 
-        this.setState({jobs : new_jobs});
+        this.props.onUpdateJob(id, newJob);
     };
 
        
@@ -363,11 +364,6 @@ class ChartCell extends React.Component {
     constructor(props) {
 
       super(props);
-      
-      this.state = {
-
-        jobs: props.jobs
-      }
     }
  
     render(){
@@ -382,7 +378,7 @@ class ChartCell extends React.Component {
 
         let data = ev.dataTransfer.getData("job");  
 
-        this.props.updateJob(data, this.props.resource.id, this.props.date)
+        this.props.onDropJob(data, this.props.resource.id, this.props.date)
 
       };
 
