@@ -1,55 +1,30 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby minimal starter
-</h1>
+# Build Interactive Gantt Charts with Airtable, Gatsby & React
 
-## 🚀 Quick start
+With Gatsby it is very easy to integrate different data sources into one application. In this article, we develop a task management tool whose data is fetched from Airtable. As frontend technology we use React with a hybrid rendering strategy.
 
-1.  **Create a Gatsby site.**
+It's a common scenario: you want to develop an app that connects to data from a spreadsheet application or some other data source. In this article, I will show you how to implement an application of this type with the framework Gatsby. In our example application, tasks are imported from an Airtable workspace and visualised as a Gantt Chart. The user can move the tasks by drag and drop, after that all changes are synchronised with Airtable. You can use the project as a template for all kinds of scheduling apps.
 
-    Use the Gatsby CLI to create a new site, specifying the minimal starter.
+Link to article on SitePoint (if known).
 
-    ```shell
-    # create a new Gatsby site using the minimal starter
-    npm init gatsby
-    ```
+## Requirements
 
-2.  **Start developing.**
+* [Node.js](http://nodejs.org/) (min version if applicable)
 
-    Navigate into your new site’s directory and start it up.
+## Installation Steps (if applicable)
 
-    ```shell
-    cd my-gatsby-site/
-    npm run develop
-    ```
+1. Clone repo
+2. Run `npm install`
+3. Run `npm run server`
+4. Visit http://localhost:8000/
 
-3.  **Open the code and start customizing!**
+## License
 
-    Your site is now running at http://localhost:8000!
+SitePoint's code archives and code examples are licensed under the MIT license.
 
-    Edit `src/pages/index.js` to see your site update in real-time!
+Copyright © 2021 SitePoint
 
-4.  **Learn more**
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-    - [Tutorials](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Guides](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-## 🚀 Quick start (Gatsby Cloud)
-
-Deploy this starter with one click on [Gatsby Cloud](https://www.gatsbyjs.com/cloud/):
-
-[<img src="https://www.gatsbyjs.com/deploynow.svg" alt="Deploy to Gatsby Cloud">](https://www.gatsbyjs.com/dashboard/deploynow?url=https://github.com/gatsbyjs/gatsby-starter-minimal)
-"# gantt-chart-gatsby" 
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
