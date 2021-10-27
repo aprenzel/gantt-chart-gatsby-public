@@ -14,8 +14,11 @@ Link to article on SitePoint (if known).
 
 1. Clone repo
 2. Run `npm install`
-3. Run `npm run server`
-4. Visit http://localhost:8000/
+3. Run `npm install --save gatsby-source-airtable`
+4. Edit file `gatsby-config.js` and enter your Airtable API Key and the base IDs of your tables
+5. Edit file `index.js` and replace all occurrences of "XXX", "YYY" and "ZZZ" with your individual Airtable IDs and URLs
+6. Run `gatsby develop`
+7. Visit http://localhost:8000/
 
 ## License
 
