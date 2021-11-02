@@ -4,13 +4,11 @@ With Gatsby it is very easy to integrate different data sources into one applica
 
 It's a common scenario: you want to develop an app that connects to data from a spreadsheet application or some other data source. In this article, I will show you how to implement an application of this type with the framework Gatsby. In our example application, tasks are imported from an Airtable workspace and visualised as a Gantt Chart. The user can move the tasks by drag and drop, after that all changes are synchronised with Airtable. You can use the project as a template for all kinds of scheduling apps.
 
-Link to article on SitePoint (if known).
-
 ## Requirements
 
-* [Node.js](http://nodejs.org/) (min version if applicable)
+* [Node.js](http://nodejs.org/)
 
-## Installation Steps (if applicable)
+## Installation Steps
 
 1. Run `npm install -g gatsby-cli`
 2. Clone repo
